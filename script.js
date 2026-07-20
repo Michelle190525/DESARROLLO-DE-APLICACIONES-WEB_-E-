@@ -1,5 +1,5 @@
 // ==========================================================================
-// SEMANA 8 - ALA MODA EXPRESS
+// SEMANA 8 (CÓDIGO UNIFICADO)
 // ==========================================================================
 
 // 1. DECLARACIÓN DE VARIABLES GLOBALES
@@ -10,9 +10,7 @@ const selectCategoria = document.getElementById('prod-categoria');
 const listaContenedor = document.getElementById('lista-productos'); 
 const totalRegistros = document.getElementById('total-registros'); 
 
-// Arreglo de objetos oficial
 let catalogoPrendas = [];
-
 
 // 2. INICIALIZACIÓN DE EVENTOS Y VALIDACIONES
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     renderizarCatalogo();
 });
-
 
 // 3. FUNCIONES DE VALIDACIÓN
 function validarNombre() {
@@ -79,7 +76,6 @@ function mostrarExito(elemento) {
     elemento.classList.add('is-valid');
 }
 
-
 // 4. MANEJO DEL ENVÍO DEL PRODUCTO 
 function manejarEnvio(evento) {
     evento.preventDefault();
@@ -113,7 +109,6 @@ function manejarEnvio(evento) {
     }
 }
 
-
 // 5. RENDERIZADO Y CONTADORES EN TIEMPO REAL
 function renderizarCatalogo() {
     if (totalRegistros) {
@@ -137,7 +132,7 @@ function renderizarCatalogo() {
                     <div>
                         <span class="badge bg-danger mb-2">${prenda.categoria}</span>
                         <h5 class="card-title fw-bold text-dark mb-1">${prenda.nombre}</h5>
-                        <p class="card-text text-muted small mb-0">Pedido: <strong>${prenda.cantidad} Docena(s)</strong></p>
+                        <p class="card-text text-muted small mb-0">Pedido: <strong>${prenda.cantidad}</strong></p>
                     </div>
                     <button class="btn btn-outline-danger btn-sm mt-3 w-100" onclick="eliminarPrenda(${prenda.id})">
                         Eliminar
@@ -153,7 +148,6 @@ window.eliminarPrenda = function(id) {
     catalogoPrendas = catalogoPrendas.filter(p => p.id !== id);
     renderizarCatalogo();
 };
-
 
 // 6. FLUJO POST-COMPRA (Actualizado con Spinner y Alerta Bootstrap)
 window.cerrarCompra = function() {
